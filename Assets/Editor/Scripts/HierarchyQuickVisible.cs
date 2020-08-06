@@ -15,7 +15,7 @@ namespace Naive.Editor
     }
 
     [InitializeOnLoad]
-    internal class HierarchyIconViewer
+    internal class HierarchyQuickVisible
     {
 
         [MenuItem(EditorMenuDefine.HierarchyQuickVisible + "开启")]
@@ -50,21 +50,21 @@ namespace Naive.Editor
 
         private static readonly List<Type> IconCmp = new List<Type>() { typeof(Image), typeof(Button), typeof(Animation), typeof(Animator), typeof(Text), typeof(Camera) };
 
-        static HierarchyIconViewer()
+        static HierarchyQuickVisible()
         {
             UpdateEnable(OnOffEnum.None);
         }
 
         static void UpdateEnable(OnOffEnum _enable)
         {
-            HierarchyIconViewer._onOff = _enable;
+            HierarchyQuickVisible._onOff = _enable;
 
-            if (HierarchyIconViewer._onOff == OnOffEnum.None)
-                HierarchyIconViewer._onOff = (OnOffEnum)PlayerPrefs.GetInt(EnableActivity,(int)OnOffEnum.On); // 默认开启
+            if (HierarchyQuickVisible._onOff == OnOffEnum.None)
+                HierarchyQuickVisible._onOff = (OnOffEnum)PlayerPrefs.GetInt(EnableActivity,(int)OnOffEnum.On); // 默认开启
             else
-                PlayerPrefs.SetInt(EnableActivity, (int)HierarchyIconViewer._onOff);
+                PlayerPrefs.SetInt(EnableActivity, (int)HierarchyQuickVisible._onOff);
 
-            if (HierarchyIconViewer._onOff == OnOffEnum.On)
+            if (HierarchyQuickVisible._onOff == OnOffEnum.On)
             {
                 Debug.Log(EditorMenuDefine.HierarchyQuickVisible + " : on");
 
